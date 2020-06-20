@@ -6,9 +6,7 @@ from json import JSONEncoder
 import json
 import smbus
 
-sys.path.insert(1,os.path.split(os.path.realpath("."))[0])
-
-import registerMap.config as config
+import config
 
 class MPU9250:
 	"""
