@@ -4,9 +4,7 @@ import time
 import smbus
 import numpy as np
 
-sys.path.insert(1,os.path.split(os.path.realpath("."))[0])
-
-from MPU9250 import MPU9250
+from imusensor.MPU9250 import MPU9250
 
 address = 0x68
 bus = smbus.SMBus(1)

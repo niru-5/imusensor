@@ -4,19 +4,17 @@ import time
 import smbus
 import numpy as np
 
-sys.path.insert(1,os.path.split(os.path.realpath("."))[0])
-
-from MPU9250 import MPU9250
-from filters import kalman
+from imusensor.MPU9250 import MPU9250
+from imusensor.filters import kalman 
 
 address = 0x68
 bus = smbus.SMBus(1)
 imu = MPU9250.MPU9250(bus, address)
 imu.begin()
-imu.caliberateAccelerometer()
-print ("Acceleration calib successful")
-imu.caliberateMag()
-print ("Mag calib successful")
+# imu.caliberateAccelerometer()
+# print ("Acceleration calib successful")
+# imu.caliberateMag()
+# print ("Mag calib successful")
 # or load your caliberation file
 # imu.loadCalibDataFromFile("/home/pi/calib_real_bolder.json")
 

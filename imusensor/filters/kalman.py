@@ -75,7 +75,7 @@ class Kalman:
 		measuredRoll, measuredPitch = self.computeRollAndPitch(ax,ay,az)
 		measuredYaw = self.computeYaw(measuredRoll, measuredPitch, mx, my, mz)
 
-		reset, gy = self.restrictRollAndPitch(measuredRoll, measuredPitch, gy)
+		reset, gy = self.__restrictRollAndPitch(measuredRoll, measuredPitch, gy)
 		# reset = 0
 		if not reset:
 			self.roll, self.currentRollState, self.rollCovariance = self.update(self.currentRollState, \
@@ -93,13 +93,11 @@ class Kalman:
 															self.yawError, self.yawDriftError, \
 															self.yawMeasurementError, gz, dt)
 
-	def restrictRollAndPitch(self, measuredRoll, measuredPitch, gy):
+	def __restrictRollAndPitch(self, measuredRoll, measuredPitch, gy):
 
 		reset = 0
-		# if (measuredRoll*self.roll < 1800 ):
 		if (measuredRoll < -90 and self.roll > 90) or (measuredRoll > 90 and self.roll < -90):
-			# self.roll = measuredRoll
-			self.setRoll(measuredRoll)
+			self.roll = measuredRoll
 			reset = 1
 		if abs(self.roll) > 90:
 			gy = -1*gy
@@ -133,7 +131,7 @@ class Kalman:
 
 		measuredRoll, measuredPitch = self.computeRollAndPitch(ax,ay,az)
 
-		reset, gy = self.restrictRollAndPitch(measuredRoll, measuredPitch, gy)
+		reset, gy = self.__restrictRollAndPitch(measuredRoll, measuredPitch, gy)
 
 		if not reset:
 			self.roll, self.currentRollState, self.rollCovariance = self.update(self.currentRollState, \

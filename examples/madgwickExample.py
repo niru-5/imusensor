@@ -3,10 +3,9 @@ import sys
 import time
 import smbus
 
-sys.path.insert(1,os.path.split(os.path.realpath("."))[0])
 
-from MPU9250 import MPU9250
-from filters import madgwick
+from imusensor.MPU9250 import MPU9250
+from imusensor.filters import madgwick
 
 sensorfusion = madgwick.Madgwick(0.5)
 
@@ -15,8 +14,8 @@ bus = smbus.SMBus(1)
 imu = MPU9250.MPU9250(bus, address)
 imu.begin()
 
-imu.caliberateGyro()
-imu.caliberateAccelerometer()
+# imu.caliberateGyro()
+# imu.caliberateAccelerometer()
 # or load your own caliberation file
 #imu.loadCalibDataFromFile("/home/pi/calib_real4.json")
 

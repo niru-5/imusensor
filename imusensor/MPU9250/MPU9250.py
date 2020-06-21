@@ -6,7 +6,7 @@ from json import JSONEncoder
 import json
 import smbus
 
-import config
+from imusensor.MPU9250 import config
 
 class MPU9250:
 	"""
