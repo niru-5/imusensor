@@ -8,7 +8,7 @@ Installing I2C tools and smbus
 sudo apt-get install i2c-tools
 sudo pip install smbus
 ```
-Connect the MPU9250 with rpi using the below connections
+Connect the MPU9250 with rpi using the below connections  
 | Rpi pin | MPU9250 pins |
 | ------ | ---------|
 | pin 3 ->| SDA pin |
