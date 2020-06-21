@@ -210,3 +210,10 @@ For the detailed explanation -> [link](https://www.x-io.co.uk/res/doc/madgwick_i
 
 ## Filter comparison
 We have also done a small filter comparison of all the filters. This data can be streamed to your computer using zmq and also you can visualize the imu orientation using pygame_viz.py in examples/filters_comparison. 
+
+# Acknowledgments
+Most of the documentation for interfacing MPU9250 with arduino is present. Our work has been inspired by the following works.  
+
+1) [bolderflight/MPU9250](https://github.com/bolderflight/MPU9250): This is a nice library for interfacing MPU9250 with arduino. 
+2) [kriswiner/MPU9250](https://github.com/kriswiner/MPU9250): This is a library for getting some accurate orientation from MPU9250. The author has answered a lot of questions in the issues and most of them are very enlightening for anybody working with IMUs. Highly recommend it.
+3) [TKJElectronics/KalmanFilter ](https://github.com/TKJElectronics/KalmanFilter): This is an implementation of second order kalman filter for IMU when using with arduino. 
