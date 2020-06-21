@@ -9,14 +9,12 @@ sudo apt-get install i2c-tools
 sudo pip install smbus
 ```
 Connect the MPU9250 with rpi using the below connections  
-```python
-```
-| Rpi pin | MPU9250 pins |
-| ------ | ---------|
-| pin 3 ->| SDA pin |
-| pin 5 ->| SCL pin |
-| pin 6 ->| Ground(GND) |
-| pin 1 ->| VCC |
+|Rpi pin | MPU9250 pins|
+|--------|----------|
+| pin 3 ->| SDA pin|
+| pin 5 ->| SCL pin|
+| pin 6 ->| Ground(GND)|
+| pin 1 ->| VCC|
 
 After you have made the connections, type the following command - 
 ```bash
@@ -77,7 +75,7 @@ Use the following command
 imu.setLowPassFilterFrequency(AccelLowPassFilter184)
 ```
 |frequency | str |
-|---------| ----|
+|---------|-----|
 | 5Hz| AccelLowPassFilter5|
 | 10Hz| AccelLowPassFilter10|
 | 20Hz| AccelLowPassFilter20|
