@@ -288,7 +288,7 @@ class MPU9250:
 		yscale = []
 		zscale = []
 
-		print ("Acceleration caliberation is starting and keep placing the IMU in 6 different directions based on the instructions below")
+		print ("Acceleration calibration is starting and keep placing the IMU in 6 different directions based on the instructions below")
 		time.sleep(2)
 		for i in range(6):
 			print ("Put the IMU in {0} position".format(i+1))
@@ -302,9 +302,16 @@ class MPU9250:
 			print (yscale)
 			print (zscale)
 
+		if len(xscale) != 2 or len(yscale) != 2 or len(zscale) != 2:
+			print ("It looks like there were some external forces on sensor and couldn't get proper values. Please try again")
+			return
+
+
 		self.AccelBias[0] = -1*(xscale[0] + xscale[1])/(abs(xscale[0]) + abs(xscale[1]))
 		self.AccelBias[1] = -1*(yscale[0] + yscale[1])/(abs(yscale[0]) + abs(yscale[1]))
 		self.AccelBias[2] = -1*(zscale[0] + zscale[1])/(abs(zscale[0]) + abs(zscale[1]))
+
+		self.AccelBias = -1*self.cfg.Gravity*self.AccelBias
 
 		self.Accels[0] = (2.0*self.cfg.Gravity)/(abs(xscale[0]) + abs(xscale[1]))
 		self.Accels[1] = (2.0*self.cfg.Gravity)/(abs(yscale[0]) + abs(yscale[1]))
@@ -322,7 +329,7 @@ class MPU9250:
 
 	def __assignBiasOrScale(self, val, scale, bias):
 
-		if val > 7.0 or val < -7.0 :
+		if val > 6.0 or val < -6.0 :
 			scale.append(val)
 		else:
 			bias.append(val)
