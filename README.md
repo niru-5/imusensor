@@ -1,3 +1,9 @@
+# Update  
+Adding blog links to provide more information about the math behind the code.    
+[IMU Intro](https://medium.com/@niru5/intro-to-inertial-measurement-unit-imu-part-1-47f19fc7d68d) - It gives an introduction into IMU working and the math behind calibration and basic idea behind finding roll, pitch and yaw.   
+[Sensor Fusion](https://medium.com/@niru5/fusion-of-accelerometer-magnetometer-data-with-gyroscope-part-2-2887261e7245) - This blog goes into math behind kalman filter, Madgwick filter and how they are applied here.   
+[Hands-on Intro](https://medium.com/@niru5/hands-on-with-rpi-and-mpu9250-part-3-232378fa6dbc) - A general overview of getting started. 
+
 # imusensor
 The repo provides a bridge between MPU9250 and raspberry pi. It also lists various caliberation code and filters for getting an accurate orientation from MPU9250
 This repo mostly concentrates on the problem of connecting IMU(MPU9250) to raspberry pi through I2C communication. 
