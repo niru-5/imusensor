@@ -52,7 +52,7 @@ class MPU9250:
 		self.__writeRegister(self.cfg.PowerManagement1, self.cfg.ClockPLL)
 
 		name = self.__whoAmI()
-		if not (name[0] == 113 | name[0] == 115 ):
+		if not (name[0] == 113 or name[0] == 115 ):
 			print ("The name is wrong {0}".format(name))
 		self.__writeRegister(self.cfg.PowerManagement2, self.cfg.SensorEnable)
 
