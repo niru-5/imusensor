@@ -291,7 +291,7 @@ class MPU9250:
 		print ("Acceleration calibration is starting and keep placing the IMU in 6 different directions based on the instructions below")
 		time.sleep(2)
 		for i in range(6):
-			print ("Put the IMU in {0} position".format(i+1))
+			input("Put the IMU in {0} position. Press enter to continue..".format(i+1))
 			time.sleep(3)
 			meanvals = self.__getAccelVals()
 			print (meanvals)
