@@ -52,7 +52,7 @@ class MPU9250:
 		self.__writeRegister(self.cfg.PowerManagement1, self.cfg.ClockPLL)
 
 		name = self.__whoAmI()
-		if not (name[0] == 113 | name[0] == 115 ):
+		if not (name[0] == 113 or name[0] == 115 ):
 			print ("The name is wrong {0}".format(name))
 		self.__writeRegister(self.cfg.PowerManagement2, self.cfg.SensorEnable)
 
@@ -291,7 +291,7 @@ class MPU9250:
 		print ("Acceleration calibration is starting and keep placing the IMU in 6 different directions based on the instructions below")
 		time.sleep(2)
 		for i in range(6):
-			print ("Put the IMU in {0} position".format(i+1))
+			input("Put the IMU in {0} position. Press enter to continue..".format(i+1))
 			time.sleep(3)
 			meanvals = self.__getAccelVals()
 			print (meanvals)
