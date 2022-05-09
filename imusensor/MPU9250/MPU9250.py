@@ -79,7 +79,7 @@ class MPU9250:
 		time.sleep(0.1)
 		self.MagScale = self.__readAK8963Registers(self.cfg.Ak8963ASA, 3)
 		self.MagScale = np.array(self.MagScale)
-		self.MagScale = (self.MagScale - 128.0)/(256.0 + 1.0)*(4912.0/32760.0)
+		self.MagScale = ((self.MagScale - 128.0)/256.0 + 1.0)*(4912.0/32760.0)
 
 		self.__writeAK8963Register(self.cfg.Ak8963CNTL1, self.cfg.Ak8963PowerDown)
 		time.sleep(0.1)
